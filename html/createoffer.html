@@ -1,0 +1,116 @@
+<div id="co-container">
+	<div class="form-header">
+		Make an offer to buy ticket
+	</div>
+    
+    <div id="co-errors"> <!-- this div will display input errors in the form -->
+        There are errors in this form, please correct them and try again...
+    </div>
+    
+	<form>
+        <div id="co-class-row">
+            <div class="co-form-label co-inline-block co-label-width">Class:</div>
+            <div id="co-economy-class" class="co-first-option">Economy</div>
+            <div id="co-business-class" class="co-notfirst-option">Business</div>
+            <div id="co-first-class" class="co-notfirst-option">First</div>
+        </div>
+
+
+        <div id="co-trip-type-row">
+            <div class="co-form-label co-inline-block co-label-width" >Journey:</div>
+            <div class="co-first-option" id="co-roundtrip-option" >Round-trip</div>
+            <div class="co-notfirst-option" id="co-oneway-option" >One-way</div>
+        </div>
+        
+		<table id="co-form-table">
+			<tr>
+				<td>
+					<input  autofocus type="text" id="co-from" placeholder="Leaving From">
+				</td> <!--suggest airport-->
+				
+				<td>
+				    <input type="text" id="co-to" placeholder="Going To" class="co-values co-second-field ">
+				</td> <!--suggest airport-->
+			</tr>
+			
+			<tr>
+				<td>
+				    <input type="text" id="co-leaving" placeholder="Leaving Date" class="co-values">
+				</td> 
+				<td id="co-returning-td">
+				    <input type="text" id="co-returning" placeholder="Returning Date" class="co-values co-second-field">
+				</td> 
+			</tr>
+						
+			<tr>
+				<td  class="co-form-label">Number of Passengers:</td>
+				<td><div class="co-inline-block co-second-field "><input id="co-num-passengers" value="1"></div></td> 
+			</tr>	
+
+			<tr>
+				<td  class="co-form-label">Max number of Stops:</td>
+				<td><div class="co-inline-block co-second-field "><input id="co-num-stops" value="0"></div></td> 
+			</tr>				
+		</table>
+		
+		<br>
+		<hr>
+		<!-- leaving time range slider -->
+		<div id="co-onward-flight-details" class="co-time-slider-container">
+
+			<div class="co-hr-header-label">Onward Flight Details</div>
+		
+			<div class="co-slider-labels" id="co-leaving-time-label">Flight Leaving Between</div>
+			<div class="co-inline-block" id="co-leaving-time">7AM - 6PM</div>
+			<div id="co-to-leaving-slider" class="co-time-sliders"></div>
+		</div>
+		
+		<!-- arriving time range slider -->
+		<div class="co-time-slider-container">
+			<div class="co-slider-labels" id="co-leaving-time-label">Flight Arriving Between</div>
+			<div class="co-inline-block" id="co-arriving-time">7AM - 6PM</div>
+			<div id="co-to-arriving-slider" class="co-time-sliders"></div>
+		</div>
+		
+		<div id="co-roundtrip-details-block">
+			<br><br>
+			<hr>
+			<!-- leaving time range slider -->
+			<div id="co-return-flight-details" class="co-time-slider-container">
+
+				<div class="co-hr-header-label">Retrun Flight Details</div>
+			
+				<div class="co-slider-labels" id="co-return-leaving-time-label">Flight Leaving Between</div>
+				<div class="co-inline-block" id="co-return-leaving-time">7AM - 6PM</div>
+				<div id="co-return-leaving-slider" class="co-time-sliders"></div>
+			</div>
+			
+			<!-- arriving time range slider -->
+			<div class="co-time-slider-container">
+				<div class="co-slider-labels" id="co-return-leaving-time-label">Flight Arriving Between</div>
+				<div class="co-inline-block" id="co-return-arriving-time">7AM - 6PM</div>
+				<div id="co-return-arriving-slider" class="co-time-sliders"></div>
+			</div>
+		</div>
+		
+		<div id="co-offer-price-block">
+			<br><br>
+			<hr>
+			<div id="co-offer-price-details">
+
+				<div id="co-offer-hr-header-label">Your Offer</div>
+
+				<div id="co-price-label-before" class="co-slider-labels">Offer: </div>
+				<div id="co-price-value" class="co-inline-block"> <input autofocus id="co-offer-price-value" value="50"></div>
+				<div id="co-price-label-after" class="co-slider-labels">/per ticket</div>
+			</div>
+
+		</div>
+
+		
+		<div class="co-inline-block" id="co-continue-button">
+				Continue <!-- on to offer page -->
+		</div>
+	</form>
+
+</div>

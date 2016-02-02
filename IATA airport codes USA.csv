@@ -1,0 +1,483 @@
+"Aberdeen, SD",ABR
+"Abilene, TX",ABI
+"Akron, OH",CAK
+"Albany, GA",ABY
+"Albany, NY",ALB
+"Albuquerque, NM",ABQ
+"Alexandria, La",ESF
+"Allentown, PA",ABE
+"Altoona, PA",AOO
+"Amarillo, TX",AMA
+"Anchorage, AK",ANC
+"Ann Arbor, MI",ARB
+"Anniston, AL",ANB
+"Appelton/Neenah/Menasha, WI",ATW
+"Asheville, NC",AVL
+"Aspen Snowmass, CO",ASE
+"Athens, GA",AHN
+"Athens, OH",ATO
+"Atlanta, Hartsfield Atlanta Int'l Airport",ATL
+"Atlantic City, NJ",ACY
+"Augusta, GA",AGS
+"Augusta, ME",AUG
+"Austin, TX",AUS
+"Bakersfield, CA",BFL
+Baltimore Washington Int'l Airport; MD,BWI
+"Bangor, ME",BGR
+"Baton Rouge, La",BTR
+"Beaumont/Pt. Arthur, TX",BPT
+"Beckley, WV",BKW
+"Bellingham, WA",BLI
+"Bemidji, MN",BJI
+"Benton Harbour, MI",BEH
+"Bethel, AK",BET
+"Billings, MT",BIL
+"Birmingham, AL",BHM
+"Bismarck/Mandan, ND",BIS
+"Bloomington, IL",BMI
+"Bloomington, IN",BMG
+"Bluefield, WV",BLF
+"Boise, ID",BOI
+"Borrego Springs, CA",BXS
+"Boston - Logan, MA",BOS
+"Bozeman, MT",BZN
+"Bradford/Warren, PA/Olean, NY",BFD
+"Brainerd, MN",BRD
+"Bridgeport, CT",BDR
+"Brookings, SD",BKX
+"Brunswick, GA",BQK
+"Buffalo/Niagara Falls, NY",BUF
+"Bullhead City, NV",BHC
+"Burbank, CA",BUR
+"Burlington, IA",BRL
+"Burlington, VT",BTV
+"Butte, MT",BTM
+"Carlsbad, CA",CLD
+"Casper, WY",CPR
+"Cedar City, UT",CDC
+"Cedar Rapids, IA",CID
+"Champaign, IL",CMI
+"Charleston, SC",CHS
+"Charleston, WV",CRW
+"Charlotte, NC",CLT
+"Charlottesville, VA",CHO
+"Chattanooga, TN",CHA
+"Cheyenne, WY",CYS
+"Chicago, Midway, IL",MDW
+"Chicago O'Hare Int'l Airport, IL",ORD
+"Chicago, IL",CHI
+"Chico, CA",CIC
+"Cincinnati, OH",CVG
+"Clarksburg, WV",CKB
+"Cleveland, Burke Lakefront, OH",BKL
+"Cleveland, Hopkins, OH",CLE
+"Cody/Powell/Yellowstone, WY",COD
+"Coffmann Cove, AK",KCC
+"College Station/Bryan, TX",CLL
+"Colorado Springs, CO",COS
+"Columbia, SC",CAE
+"Columbus, GA",CSG
+"Columbus, OH",CMH
+"Concord, CA",CCR
+"Cordova, AK",CDV
+"Corpus Christi, TX",CRP
+"Craig, AK",CGA
+"Crescent City, CA",CEC
+"Dallas, Love Field, TX",DAL
+"Dallas/Ft. Worth, TX",DFW
+"Danville, VA",DAN
+"Dayton, OH",DAY
+"Daytona Beach, FL",DAB
+"Decatur, IL",DEC
+"Denver International Airport, CO",DEN
+"Des Moines, IA",DSM
+"Detroit City, MI",DET
+"Detroit Metropolitan Wayne County Airport, MI",DTW
+"Detroit Metropolitan Area, MI",DTT
+"Devils Lake, ND",DVL
+"Dillingham, AK",DLG
+"Dothan, AL",DHN
+"Dubois, PA",DUJ
+"Dubuque, IA",DBQ
+"Duluth, MN/Superior, WI",DLH
+"Durango, CO",DRO
+"Dutch Harbor, AK",DUT
+"Eau Clarie, WI",EAU
+"El Paso, TX",ELP
+"Elkhart, IN",EKI
+"Elko, NV",EKO
+"Elmira, NY",ELM
+"Ely, NV",ELY
+"Erie, PA",ERI
+"Escabana, MI",ESC
+"Eugene, OR",EUG
+"Eureka, CA",ACV
+"Evansville, IN",EVV
+"Fairbanks, AK",FAI
+"Fargo, ND, MN",FAR
+"Farmington, NM",FMN
+"Fayetteville, AR",FYV
+"Fayetteville/Ft. Bragg, NC",FAY
+"Flagstaff, AZ",FLG
+"Flint, MI",FNT
+"Florence, SC",FLO
+"Fort Dodge, IA",FOD
+"Fort Huachuca/Sierra Vista, AZ",FHU
+"Fort Lauderdale/Hollywood, FL",FLL
+"Fort Myers, Metropolitan Area, FL",FMY
+"Fort Myers, Southwest Florida Reg, FL",RSW
+"Fort Smith, AR",FSM
+"Fort Walton Beach, FL",VPS
+"Fort Wayne, IN",FWA
+"Franklin/Oil City, PA",FKL
+"Fresno, CA",FAT
+"Gadsden, AL",GAD
+"Gainesville, FL",GNV
+"Gilette, WY",GCC
+"Glasgow, MT",GGW
+"Glendive, MT",GDV
+"Grand Canyon, AZ",GCN
+"Grand Forks, ND",GFK
+"Grand Junction, CO",GJT
+"Grand Rapids, MI",GRR
+"Grand Rapids, MN",GPZ
+"Great Falls, MT",GTF
+"Green Bay, WI",GRB
+"Greenbrier/Lewisburg, WV",LWB
+"Greensboro/Winston Salem, NC",GSO
+"Greenville, MS",GLH
+"Greenville, NC",PGV
+"Greenville/Spartanburg, SC",GSP
+"Groton/New London, CT",GON
+"Gulfport/Biloxi, MS",GPT
+"Gunnison/Crested Butte, CO",GUC
+"Haines, AK",HNS
+"Hancock, MI",CMX
+"Harlington/South Padre Island, TX",HRL
+"Harrisburg, PA - Harrisburg Skyport",HAR
+"Harrisburg, PA - Harrisburg Int'l",MDT
+"Hartford, CT/Springfield, MA",BDL
+"Havre, MT",HVR
+"Helena, MT",HLN
+"Hibbing, MN",HIB
+"Hickory, NC",HKY
+"Hilo, HI",ITO
+"Hilton Head Island, SC",HHH
+"Homer, AK",HOM
+"Honolulu, HI",HNL
+"Hoonah, AK",HNH
+"Houston, Hobby, TX",HOU
+"Houston, Intercontinental, TX",IAH
+"Huntington, OH",HTS
+"Huntsville, AL",HSV
+"Huron, SD",HON
+"Hyannis, MA",HYA
+"Hydaburg, AK",HYG
+"Idaho Falls, ID",IDA
+"Iliamna, AK",ILI
+"Imperial, CA",IPL
+"Indianapolis, IN",IND
+"International Falls, MN",INL
+"Inykern, CA",IYK
+"Ithaca/Cortland, NY",ITH
+"Jackson Hole, WY",JAC
+"Jackson, MI",JXN
+"Jackson, MS",JAN
+"Jackson, TN",MKL
+"Jacksonville, FL",JAX
+"Jacksonville, NC",OAJ
+"Jamestown, ND",JMS
+"Jamestown, NY",JHW
+"Johnstown, PA",JST
+"Joplin, MO",JLN
+"Juneau, AK - Juneau Int'l",JNU
+"Kahului, HI",OGG
+"Kalamazoo/Battle Creek, MI",AZO
+"Kalispell, MT",FCA
+"Kamuela, HI",MUE
+"Kansas City, MO - Int'l",MCI
+"Kapalua West, HI",JHM
+"Kaunakakai, HI",MKK
+"Kenai, AK",ENA
+"Ketchikan, AK",KTN
+"Key West, FL",EYW
+"Killeem, TX",ILE
+"King Salomon, AK",AKN
+"Kingston, NC",ISO
+"Klamath Fall, OR",LMT
+"Klawock, AK",KLW
+"Knoxville, TN",TYS
+"Kodiak, AK",ADQ
+"Kona, HI",KOA
+"Kotzbue, AK",OTZ
+"Labouchere Bay, AK",WLB
+"La Crosse, WI",LSE
+"Lafayette, IN",LAF
+"Lafayette, La",LFT
+"Lake Charles, La",LCH
+"Lake Havasu City, AZ",HII
+"Lake Tahoe, CA",TVL
+"Lanai City, HI",LNY
+"Lancaster, PA",LNS
+"Lansing, MI",LAN
+"Laramie, WY",LAR
+"Laredo, TX",LRD
+"Las Vegas, NV",LAS
+"Latrobe, PA",LBE
+"Laurel/Hattisburg, MS",PIB
+"Lawton, OK",LAW
+"Lebanon, NH",LEB
+"Lewiston, ID",LWS
+"Lewistown, MT",LWT
+"Lexington, KY",LEX
+"Lihue, HI",LIH
+"Lincoln, NE",LNK
+"Little Rock, AR",LIT
+"Long Beach, CA",LGB
+"Long Island, AK",LIJ
+"Long Island, Islip, NY - Mac Arthur",ISP
+"Longview/Kilgore, TX",GGG
+"Los Angeles, CA - Int'l",LAX
+"Louisville, KY",SDF
+"Lubbock, TX",LBB
+"Lynchburg, VA",LYH
+"Macon, GA",MCN
+"Madison, WI",MSN
+"Manchester, NH",MHT
+"Marathon, FL",MTH
+"Marquette, MI",MQT
+"Martha's Vineyard, MA",MVY
+"Mason City, IA",MCW
+"Mattoon, IL",MTO
+"McAllen, TX",MFE
+"Medford, OR",MFR
+"Melbourne, FL",MLB
+"Memphis, TN",MEM
+"Merced, CA",MCE
+"Meridian, MS",MEI
+"Metlakatla, AK",MTM
+"Miami, FL",MIA
+"Midland/Odessa, TX",MAF
+"Miles City, MT",MLS
+"Milwaukee, WI",MKE
+"Minneapolis - St. Paul Int'l Airport, MN",MSP
+"Minot, ND",MOT
+"Missula, MT",MSO
+"Mitchell, SD",MHE
+"Mobile, AL - Pascagoula, MS",MOB
+"Modesto, CA",MOD
+"Moline/Quad Cities, IL",MLI
+"Monroe, La",MLU
+"Monterey, CA",MRY
+"Montgomery, AL",MGM
+"Montrose/Tellruide, CO",MTJ
+"Morgantown, WV",MGW
+"Moses Lake, WA",MWH
+"Mt. McKinley, AK",MCL
+"Muscle Shoals, AL",MSL
+"Muskegon, MI",MKG
+"Myrtle Beach, SC",MYR
+"Nantucket, MA",ACK
+"Naples, FL",APF
+"Nashville, TN",BNA
+"New Bern, NC",EWN
+"New Haven, CT",HVN
+"New Orleans, La",MSY
+"New York - John F. Kennedy, NY",JFK
+"New York - La Guardia, NY",LGA
+"New York - Newark, NJ",EWR
+"New York, NY",NYC
+"Newburgh, NY",SWF
+"Newport News/Williamsburg, VA",PHF
+Niagara Falls Int'l,IAG
+"Nome, AK",OME
+"Norfolk/Virginia Beach, VA",ORF
+"North Bend, OR",OTH
+"Oakland, CA",OAK
+"Oklahoma City, OK - Will Rogers World",OKC
+"Omaha, NE",OMA
+"Ontario, CA",ONT
+"Orange County (Santa Ana), CA",SNA
+"Orlando Metropolitan Area, FL",ORL
+"Oshkosh, WI",OSH
+"Owensboro, KY",OWB
+"Oxnard, CA",OXR
+"Paducah, KY",PAH
+"Page/Lake Powell, AZ",PGA
+"Pakersburg, WV/Marietta, OH",PKB
+"Palm Springs, CA",PSP
+"Palmdale/Lancaster, CA",PMD
+"Panama City, FL",PFN
+"Pasco, WA",PSC
+"Pellston, MI",PLN
+"Pendelton, OR",PDT
+"Pensacola, FL",PNS
+"Peoria/Bloomington, IL",PIA
+"Petersburg, AK",PSG
+"Philadelphia, PA - Int'l",PHL
+"Phoenix, AZ - Sky Harbor Int'l",PHX
+"Pierre, SD",PIR
+"Pittsburgh Int'l Airport, PA",PIT
+"Plattsburgh, NY",PLB
+"Pocatello, ID",PIH
+"Port Angeles, WA",CLM
+"Portland, ME",PWM
+"Portland Int'l, OR",PDX
+"Poughkeepsie, NY",POU
+"Presque Island, ME",PQI
+"Providence, RI",PVD
+"Prudhoe Bay, AK",SCC
+"Pueblo, CO",PUB
+"Pullman, WA",PUW
+"Quincy, IL",UIN
+"Raleigh/Durham, NC",RDU
+"Rapid City, SD",RAP
+"Reading, PA",RDG
+"Redding, CA",RDD
+"Redmond, OR",RDM
+"Reno, NV",RNO
+"Rhinelander, WI",RHI
+"Richmond, VA",RIC
+"Roanoke, VA",ROA
+"Rochester, MN",RST
+"Rochester, NY",ROC
+"Rock Springs, WY",RKS
+"Rockford, IL",RFD
+"Rockland, ME",RKD
+"Rocky Mount - Wilson, NC",RWI
+"Sacramento, CA",SMF
+"Saginaw/Bay City/Midland, MI",MBS
+"Salem, OR",SLE
+"Salinas, CA",SNS
+"Salisbury, MD",SBY
+"Salt Lake City, UT",SLC
+"San Angelo, TX",SJT
+"San Antonio, TX",SAT
+"San Diego - Lindberg Field Int'l, CA",SAN
+"San Francisco - Int'l Airport, SA",SFO
+"San Jose, CA",SJC
+"San Luis Obisco, CA",SBP
+"Santa Barbara, CA",SBA
+"Santa Maria, CA",SMX
+"Santa Rosa, CA",STS
+"Sarasota/Bradenton, FL",SRQ
+"Savannah, GA",SAV
+"Scottsdale, AZ",SCF
+"Seattle/Tacoma, WA",SEA
+"Shenandoah Valley/Stauton, VA",SHD
+"Sheridan, WY",SHR
+"Shreveport, La",SHV
+"Sidney, MT",SDY
+"Sioux City, IA",SUX
+"Sioux Falls, SD",FSD
+"Sitka, AK",SIT
+"Skagway, AK",SGY
+"South Bend, IN",SBN
+"Spokane, WA",GEG
+"Springfield, IL",SPI
+"Springfield, MO",SGF
+"St. George, UT",SGU
+"St. Louis - Lambert, MO",STL
+"State College/Belefonte, PA",SCE
+"Steamboat Springs, CO",HDN
+"Stockton, CA",SCK
+"Sun Valley, ID",SUN
+"Syracuse, NY",SYR
+"Talkeetna, AK",TKA
+"Tallahassee, FL",TLH
+"Tampa Int'l, FL",TPA
+"Telluride, CO",TEX
+"Terre Haute, IN",HUF
+"Texarkana, AR",TXK
+"Thief River Falls, MN",TVF
+"Thorne Bay, AK",KTB
+"Toledo, OH",TOL
+"Traverse City, MI",TVC
+"Trenton/Princeton, NJ",TTN
+"Tri-Cities Regional, TN/VA",TRI
+"Tucson, AZ",TUS
+"Tulepo, MS",TUP
+"Tulsa, OK",TUL
+"Tuscaloosa, AL",TCL
+"Twin Falls, ID",TWF
+"Tyler, TX",TYR
+"Utica, NY",UCA
+"Vail, CO",EGE
+"Valdez, AK",VDZ
+"Valdosta, GA",VLD
+"Vernal, UT",VEL
+"Vero Beach/Ft. Pierce, FL",VRB
+"Visalia, CA",VIS
+"Waco, TX",ACT
+"Walla Walla, WA",ALW
+Washington DC - Baltimore Washington Int'l,BWI
+Washington DC - Dulles Int'l,IAD
+Washington DC - Ronald Reagan National,DCA
+"Washington, DC",WAS
+"Waterloo, IA",ALO
+"Watertown, SD",ATY
+"Wausau/Stevens Point, WI",CWA
+"Wenatchee, WA",EAT
+"West Palm Beach, FL",PBI
+"West Yellowstone, MT",WYS
+"White Plains, NY",HPN
+"Wichita Falls, TX",SPS
+"Wichita, KS",ICT
+"Wilkes Barre/Scranton, PA",AVP
+"Williamsport, PA",IPT
+"Williston, ND",ISL
+"Wilmington, NC",ILM
+"Wolf Point, MT",OLF
+"Worcester, MA",ORH
+"Worland, WY",WRL
+"Wrangell, AK",WRG
+"Yakima, WA",YKM
+"Yakutat, AK",YAK
+"Yuma, AZ",YUM
+Samarkand,SKD
+Tashkent - Vostochny,TAS
+Termez (Termes),TMZ
+Port Vila,VLI
+Santo,SON
+Barcelona,BLA
+Caracas,CCS
+Maracaibo - La Chinita,MAR
+Margerita,PMV
+Puerto Ordaz,PZO
+Valencia,VLN
+Hanoi - Noibai,HAN
+Ho Chi Minh City (Saigon),SGN
+Hue - Phu Bai,HUI
+Saigon (Ho Chi Minh City),SGN
+St. Croix,STX
+St. Thomas,STT
+Tortola,EIS
+Virgin Gorda,VIJ
+Beef Island,EIS
+Futuna,FUT
+Wallis,WLS
+Urumqi,URC
+Aden,ADE
+Sanaa (Sana'a) - Sana'a International,SAH
+Belgrad (Beograd),BEG
+Nis,INI
+Novi Sad,QND
+Podgorica,TGD
+Pristina,PRN
+Tivat,TIV
+Kisangani,FKI
+Lumbumbashi,FBM
+Chipata,CIP
+Kitwe,KIW
+Lusaka,LUN
+Mfuwe,MFU
+N'Dola,NLA
+Hangchow (Hangzhou),HGH
+Buffalo Range,BFO
+Bulawayo,BUQ
+Gweru,GWE
+Harare,HRE
+Hwange National Park,HWN
+Masvingo,MVZ
+Salisbury,SAY
+Victoria Falls,VFA
