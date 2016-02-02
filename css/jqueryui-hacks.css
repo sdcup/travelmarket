@@ -1,0 +1,27 @@
+/*
+** this file contains styles for JQuery UI widgets
+*/
+
+.ui-slider .ui-slider-handle {
+    cursor: default;
+    position: absolute;
+    z-index: 2;
+	line-height: 2px;
+	background: gray;
+	height: .5em;
+	width: 10px;
+}
+
+.ui-slider-horizontal {
+	height: .3em;
+}
+
+.ui-slider-range {
+	background: orange;
+}
+
+/* to make datepicker fonts much smaller */
+#ui-datepicker-div { font-size:12px; }
+.ui-autocomplete .ui-menu-item { 
+	font-size:x-small;
+}

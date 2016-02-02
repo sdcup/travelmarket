@@ -1,0 +1,65 @@
+#login-form {
+	position: relative;
+	display: inline-block;
+	top: 2em;
+	left: 2em;
+	border: thin black solid;
+	font-size: large;
+	padding-left: 1.5em;
+	pading-right: 1.5em;
+	padding-top:0.5em;
+}
+
+#forgot-password-div {
+	position: relative;
+	left: 2em;
+	top: 2em;
+	width: 20em;
+}
+
+#forgot-password-ok-button {
+	float: left;
+	width: 12em;
+	margin: .6em;
+	text-align: center;
+}
+
+.login-label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.login-values {
+	margin: 5px;
+	padding: 5px;
+}
+
+.ok-button {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+#fb-button {
+	float: left;
+	padding:10px;
+	margin-bottom: 1em;
+	width: 202px;
+	height: 46px;
+	background: url("/images/fb-login-button.png") center;
+	background-repeat: no-repeat;
+}
+
+#goog-button {
+	float: right;
+	padding: 10px;
+	width: 202px;
+	height: 46px;
+	background: url("/images/goog-login-button.png") center;
+	background-repeat: no-repeat;
+}
+
+#forgot-password {
+	text-align: center;
+	font-style: italic;
+}

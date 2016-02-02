@@ -1,0 +1,160 @@
+
+body {
+	background: bisque;
+}
+
+#page-container {
+	background: white;
+	position: relative;
+	width: 60em;
+	height: 58em;
+	margin-top: 15px;
+    margin-left: auto;
+	margin-right: auto;
+	outline: black solid thin;
+}
+
+
+
+#title {
+	position: relative;
+	height: 3em;
+	outline: black solid thin;
+	padding-top: .5em;
+}
+
+#sign-in { /* this DIV goes inside the title bar*/
+	position: absolute;
+	width:  8em;
+	height: 1em;
+	left: 50em;
+	top: 5px;
+	margin-top:0;
+	padding-top:0;
+	font-style: italic;
+}
+
+#regsitration-label { /* div this goes inside the title bar, below signin button*/
+	position: absolute;
+	width:  15em;
+	height: 1em;
+	left: 49em;
+	top: 2em;
+	margin-top:0;
+	padding-top:0;
+	font-style: italic;
+	color: blue;
+}
+
+#sign-in-button {
+	float:right;
+}
+
+#main-nav {
+	position: relative;
+	height: 3em;
+}
+
+#main-nav-list {
+	list-style: none;
+	margin:0px;
+	padding-left: 10px;
+	padding-top: 1em;
+}
+
+#main-nav li {
+	display: inline-block;
+}
+
+#main-nav a:link {
+	position: relative;
+	padding: 0.4em 1em 0.4em 1em;
+	color: #ffffff;
+	background-color: white;
+	text-decoration: none;
+	outline: 1px solid #711515;
+}
+
+#main-nav a:hover {
+	background: lightcyan;
+}
+
+#main-container {
+	float: left;
+}
+
+#sidebar-left {
+	float: left;
+	background: lightgray;
+	margin-left: 4px;
+	height: calc(100% - 7em + 4px); 
+	width:11em;
+}
+
+#content {
+	float: right;
+	height: 46.4em;
+	width: 48em;
+	float: right;
+	margin-right: 3px;
+}
+
+#ad-bar {
+	float: right;
+	height: 4em;
+	width: 48em;
+	left: 11.25em;
+	margin-top:.2em;
+	margin-right: 3px;
+	background: url("/images/somead.jpg") center;
+	background-repeat: no-repeat;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 3em;
+	font-size: .8em;
+	text-align: center;
+	vertical-align: center;
+	font-style: italic;
+	padding-bottom: 0px;
+	margin: 0;
+	background: lightblue;
+
+}
+
+#copyright {
+	padding-top: 0em;
+	vertical-align: center;
+	margin: 0;
+}
+
+
+.hidden {
+	display: none;
+}
+
+.form-header {
+	display: inline-block;
+	position: relative;
+	top: -1.2em;
+	margin-left: auto;
+	margin-right: auto;
+	font-style: italic;
+	background-color: white;
+	padding-left: 1em;
+	padding-right: 1em;
+}
+
+h1 {
+	font-family: 'lucida';
+	font-style: oblique;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	text-align: center;
+	font-stretch: expanded;
+	font-weight: normal;
+}

@@ -1,0 +1,31 @@
+#registration-form {
+	position: relative;
+	display: inline-block;
+	top: 2em;
+	left: 2em;
+	border:  thin solid;
+	font-size: large;
+    padding-left: 1em;
+	padding-right: 1em;
+	padding-top:0.5em;
+	margin-bottom: 0em;
+	
+}
+
+.rf-form-label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.rf-values {
+	margin: 5px;
+	padding: 5px;
+	background: #FCFD9B;
+}
+
+.ok-button {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+

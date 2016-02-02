@@ -1,0 +1,162 @@
+#co-container {
+	position: relative;
+	display: inline-block;
+	top: 2em;
+	left: 2em;
+	border:  thin solid;
+    padding-left: 1em;
+	padding-right: 1em;
+	/*padding-top:0.5em;*/
+    padding-bottom: 0.5em;
+	margin-bottom: 0em;
+}
+
+#co-errors {
+    color: red;
+    font-style: italic;
+    visibility: hidden;
+    font-weight: bold;
+}
+
+#co-trip-type-row {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.co-first-option {
+    display: inline-block;
+}
+
+
+.co-notfirst-option {
+    display: inline-block;
+    margin-left: 1.5em;
+}
+
+.co-time-sliders {
+	margin-top: 0.5em;
+	width: 10em;
+}
+
+.co-slider-labels {
+	margin-top: .1em;
+	display: inline-block;
+	font-weight: bold;
+}
+
+.co-time-slider-container {
+	margin-top: 1em;
+}
+
+#co-button {
+	background-color: orange;
+}
+
+#co-form-table td {
+	height: 2em;
+}
+
+#co-num-passengers, #co-num-stops {
+	width: 2em;
+	padding: 0;
+	font-size: .7em;
+}
+
+#co-offer-price-value {
+	width: 6em;
+	padding: 0;
+	font-size: .7em;
+}
+
+#co-offer-hr-header-label {
+	display: inline-block;
+	position: absolute;
+	top: -1.5em;
+	left: 1em;
+	background-color: white;
+	font-style: italic;
+}
+
+#co-onward-flight-details {
+	position: relative;
+}
+
+#co-return-flight-details {
+	position: relative;
+}
+
+
+.co-hr-header-label {
+	display: inline-block;
+	position: absolute;
+	top: -2em;
+	left: 1em;
+	background-color: white;
+	font-style: italic;
+}
+
+
+
+.co-inline-block { 
+	display: inline-block;
+}
+
+.co-second-field {
+    margin-left: 2em;
+}
+
+.co-label-width {
+    width: 4em;
+}
+
+#co-continue-button {
+	background-color: orange;
+	font-weight: bold;
+	font-size: larger;
+	padding: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+	margin-left:0;
+	margin-top: 1em;
+	color: white;
+}
+
+.co-form-label {
+	color: black;
+	font-weight: bold;
+}
+
+.co-form-value-inactive {
+	color: gray;
+	font-weight: lighter;
+    margin-left: 1.5em;
+}
+
+.co-form-value-active {
+	color: limegreen;
+	font-weight: bold;
+    font-style: italic;
+    margin-left: 1.5em;
+}
+
+.rf-form-label {
+	font-weight: bold;
+	text-align: right;
+}
+
+.rf-values {
+	margin: 5px;
+	padding: 5px;
+	background: #FCFD9B;
+}
+
+.ok-button {
+	margin-top: 10px;
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+#co-offer-price-details {
+	position: relative;
+}
+
