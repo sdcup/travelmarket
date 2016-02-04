@@ -138,7 +138,7 @@ function setupOfferPrice() {
 function setupNumPassengers() {
 	var spinnerOptions = {
 		min: 1,
-		max: 12,
+		max: 8,
 	}
 	$("#co-num-passengers").spinner(spinnerOptions);
 }
@@ -268,23 +268,40 @@ function processOfferDetails() {
         $("#co-offer-price-value").focusin(resetBackground);
         $("#co-num-passengers").focusin(resetBackground);
 
-	} else {
-        //stick the data in localstorage and move to nextpage for collecting passenger details
-
-        alert("processOfferDetails : called\n" + (roundTrip ? "roundtrip" : "oneway")
-            + "\nFrom: " + origin 
-            + "\nTo: " + destination
-            + "\nLeaving: " + leavingDate
-            + "\nReturning: " + returnDate
-            + "\nClass: " + classV
-            + "\n#Passengers: " + numPassengers
-            + "\nStop: " + maxStop
-            + "\nLeaving: " + toLeavingEarliest + " : " + toLeavingLatest
-            + "\nArriving: " + toArrivingEarliest + " : " + toArrivingLatest
-            + "\nLeaving: " + fromLeavingEarliest + " : " + fromLeavingLatest
-            + "\nArriving: " + fromArrivingEarliestt + " : " + froArrivingLatest
-            + "\nOffer Price : " + offerPrice);
-    }
+        } else {
+            //stick the data in localstorage and move to nextpage for collecting passenger details
+            /*
+            alert("processOfferDetails : called\n" + (roundTrip ? "roundtrip" : "oneway")
+                + "\nFrom: " + origin 
+                + "\nTo: " + destination
+                + "\nLeaving: " + leavingDate
+                + "\nReturning: " + returnDate
+                + "\nClass: " + classV
+                + "\n#Passengers: " + numPassengers
+                + "\nStop: " + maxStop
+                + "\nLeaving: " + toLeavingEarliest + " : " + toLeavingLatest
+                + "\nArriving: " + toArrivingEarliest + " : " + toArrivingLatest
+                + "\nLeaving: " + fromLeavingEarliest + " : " + fromLeavingLatest
+                + "\nArriving: " + fromArrivingEarliestt + " : " + froArrivingLatest
+                + "\nOffer Price : " + offerPrice);
+            */
+           
+        	// get airport codes from server
+            $.ajax({
+		url: "/html/passenger-details.html",
+			type: 'post',
+			success: function (data, status) { 
+				    $("#content").html(data);
+                                    // depending on number of passengers, hide unneeded passenger blocks
+    
+                                    for(var pidx=8; pidx > numPassengers; pidx--) {
+                                        var bName = "#passenger-details-" + pidx;
+                                        $(bName).hide();
+                                    }
+				},
+			error: function () { alert("Unable to get airport codes from server"); }
+	});
+    }   
 }
 
 function displayCreateOfferForm () {

@@ -4,6 +4,8 @@
 		<link rel="stylesheet" type="text/css" href="css/login.css">
 		<link rel="stylesheet" type="text/css" href="css/registration.css">
 		<link rel="stylesheet" type="text/css" href="css/createoffer.css">
+       	<link rel="stylesheet" type="text/css" href="css/passenger.css">
+
 		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 		<link rel="stylesheet" type="text/css" href="css/jqueryui-hacks.css">
 
