@@ -6,6 +6,14 @@
     outline: thin solid black;
 }
 
+#co-passenger-detail-msg-block {
+    margin-top: 2em;
+    margin-bottom: 1 em;
+    margin-left: 2em;
+    font-weight: bold;
+    font-style: italic;
+}
+
 .co-passenger-details-block {
     position: relative;
     display: inline-block;
@@ -46,11 +54,13 @@
 }
 
 .co-dob-day {
-    width: 4em;
+    width: 1.5em;
+    font-size:70% !important;
 }
 
 .co-dob-year {
-    width: 4em;
+    width: 3em;
+    font-size:70% !important;
 }
 
 #co-fname-1, #co-fname-2, #co-fname-3, #co-fname-4, 

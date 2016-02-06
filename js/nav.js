@@ -1,7 +1,7 @@
 
 
 $(document).ready(function() {
-		$("#bookticket").click(displayCreateOfferForm);
+		$("#bookticket").click(TMCOModule.showForm);
 		$("#sellticket").click(handleNavButton);
 		$("#howitworks").click(handleNavButton);
 		$("#faq").click(handleNavButton);		

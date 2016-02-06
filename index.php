@@ -15,7 +15,7 @@
       <div id="page-container">
 		
 		<div id="title">
-				<h1>t r a v e l m a r k e t</h1>
+				<h1>t r a v e l m a r k e t s</h1>
 				<div id="sign-in">
 					<a href="#"><button id="sign-in-button">Sign In</button></a>
 				</div>
@@ -51,9 +51,9 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 		<script src="js/globalize.min.js"></script> <!-- for currency in the spinner -->
 		<script src="js/createoffer.js"></script>
-		<script src="js/nav.js"></script>
 		<script src="js/signon.js"></script>	
 		<script src="js/registration.js"></script>
+        <script src="js/nav.js"></script>
 		
    </body>
 </html
