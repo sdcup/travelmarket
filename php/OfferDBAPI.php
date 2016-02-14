@@ -46,6 +46,10 @@ class OfferDBAPI {
         return $ret['ID'];
     }
     
+    static function addPassengerListforOffer() {
+
+    }
+
     static function getOffer($oid) {
         $db = getDBConnection();
         $qstr = "SELECT * FROM BUYOFFERS WHERE ID = '$oid'";

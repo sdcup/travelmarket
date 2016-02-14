@@ -17,6 +17,11 @@ class User {
     private $_state;
     private $_zip;
     
+    public static function getCurrentUser() {
+        // TODO - define this function
+        return null;
+    }
+
     public static function createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip) {
         // validate fields
         if($uname==null || $password==null || $email==null || $fname==null || 

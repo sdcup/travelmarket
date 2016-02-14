@@ -1,13 +1,15 @@
 var TMCOModule = (function () {
-    
+
     var offerDetails = null;
-    
+
     function processCreateOffer() {
         // gather all the offer info and call processor
     }
 
     function resetBackground() {
-        $(this).css({ "background-color": "white"});
+        $(this).css({
+            "background-color": "white"
+        });
     }
 
     function swapClasses(o, removeC, addC) {
@@ -16,12 +18,11 @@ var TMCOModule = (function () {
     }
 
 
-    function setRoundTripOption() {    
+    function setRoundTripOption() {
         swapClasses($("#co-roundtrip-option"), "co-form-value-inactive", "co-form-value-active");
         swapClasses($("#co-oneway-option"), "co-form-value-active", "co-form-value-inactive");
 
-        //$("#co-returning").show();
-            $("#co-returning-td").show();
+        $("#co-returning-td").show();
         $("#co-roundtrip-details-block").show();
     }
 
@@ -30,49 +31,49 @@ var TMCOModule = (function () {
         swapClasses($("#co-oneway-option"), "co-form-value-inactive", "co-form-value-active");
 
         //$("#co-returning").hide();
-            $("#co-returning-td").hide();
+        $("#co-returning-td").hide();
         $("#co-roundtrip-details-block").hide();
     }
 
     function setEconomyOption() {
         swapClasses($("#co-economy-class"), "co-form-value-inactive", "co-form-value-active");
-        swapClasses($("#co-business-class"), "co-form-value-active", "co-form-value-inactive");    
+        swapClasses($("#co-business-class"), "co-form-value-active", "co-form-value-inactive");
         swapClasses($("#co-first-class"), "co-form-value-active", "co-form-value-inactive");
 
         // set price placeholder to min $50
         var offerP = $("#co-offer-price-value").spinner("value");
-        if(offerP===undefined || offerP < 50) {
-            $("#co-offer-price-value").spinner("value" , "50").spinner("option", "min", 50);
+        if (offerP === undefined || offerP < 50) {
+            $("#co-offer-price-value").spinner("value", "50").spinner("option", "min", 50);
         } else {
-             $("#co-offer-price-value").spinner("option", "min", 50);
+            $("#co-offer-price-value").spinner("option", "min", 50);
         }
     }
 
     function setBusinessOption() {
         swapClasses($("#co-business-class"), "co-form-value-inactive", "co-form-value-active");
-        swapClasses($("#co-economy-class"), "co-form-value-active", "co-form-value-inactive");    
+        swapClasses($("#co-economy-class"), "co-form-value-active", "co-form-value-inactive");
         swapClasses($("#co-first-class"), "co-form-value-active", "co-form-value-inactive");
 
         // set price placeholder to min $250
         var offerP = $("#co-offer-price-value").spinner("value");
-        if(offerP===undefined || offerP < 250) {
-            $("#co-offer-price-value").spinner("value" , "250").spinner("option", "min", 250);
+        if (offerP === undefined || offerP < 250) {
+            $("#co-offer-price-value").spinner("value", "250").spinner("option", "min", 250);
         } else {
-             $("#co-offer-price-value").spinner("option", "min", 250);
+            $("#co-offer-price-value").spinner("option", "min", 250);
         }
     }
 
     function setFirstOption() {
         swapClasses($("#co-first-class"), "co-form-value-inactive", "co-form-value-active");
-        swapClasses($("#co-business-class"), "co-form-value-active", "co-form-value-inactive");    
-        swapClasses($("#co-economy-class"), "co-form-value-active", "co-form-value-inactive"); 
+        swapClasses($("#co-business-class"), "co-form-value-active", "co-form-value-inactive");
+        swapClasses($("#co-economy-class"), "co-form-value-active", "co-form-value-inactive");
 
         // set price placeholder to min $250
         var offerP = $("#co-offer-price-value").spinner("value");
-        if(offerP===undefined || offerP < 250) {
-            $("#co-offer-price-value").spinner("value" , "250").spinner("option", "min", 250);
+        if (offerP === undefined || offerP < 250) {
+            $("#co-offer-price-value").spinner("value", "250").spinner("option", "min", 250);
         } else {
-             $("#co-offer-price-value").spinner("option", "min", 250);
+            $("#co-offer-price-value").spinner("option", "min", 250);
         }
     }
 
@@ -86,22 +87,29 @@ var TMCOModule = (function () {
             buttonText: 'Select Date'
         };
 
-         $("#co-leaving" ).datepicker(opts);
-         $("#co-returning" ).datepicker(opts);
+        $("#co-leaving").datepicker(opts);
+        $("#co-returning").datepicker(opts);
     }
 
     function setupAirportAutoComplete(airportTags) {
-        $("#co-from").autocomplete({ source: airportTags });
-        $("#co-to").autocomplete({ source: airportTags });
+        $("#co-from").autocomplete({
+            source: airportTags
+        });
+        $("#co-to").autocomplete({
+            source: airportTags
+        });
     }
 
 
     function timeRangeToString(range) {
         function valToString(val) {
-            if(val == 24) { return "00AM"; } 
-            else if(val==12) { return "12Noon"; }
-            else if(val > 12) { return (val-12) + "PM"; }
-            else return (val+"AM");
+            if (val == 24) {
+                return "00AM";
+            } else if (val == 12) {
+                return "12Noon";
+            } else if (val > 12) {
+                return (val - 12) + "PM";
+            } else return (val + "AM");
         }
 
         return (valToString(range[0]) + " - " + valToString(range[1]));
@@ -110,21 +118,21 @@ var TMCOModule = (function () {
     function updateSliderValues(event, ui) {
         var vals;
 
-        switch($(this).attr('id')) {
-            case 'co-to-leaving-slider':
-                $("#co-leaving-time").html(timeRangeToString(ui.values));
-                break;
-            case 'co-to-arriving-slider':
-                $("#co-arriving-time").html(timeRangeToString(ui.values));
-                break;
-            case 'co-return-leaving-slider':
-                $("#co-return-leaving-time").html(timeRangeToString(ui.values));
-                break;
-            case 'co-return-arriving-slider':
-                $("#co-return-arriving-time").html(timeRangeToString(ui.values));
-                break;		
-            default:
-                alert("I don't know what happened");
+        switch ($(this).attr('id')) {
+        case 'co-to-leaving-slider':
+            $("#co-leaving-time").html(timeRangeToString(ui.values));
+            break;
+        case 'co-to-arriving-slider':
+            $("#co-arriving-time").html(timeRangeToString(ui.values));
+            break;
+        case 'co-return-leaving-slider':
+            $("#co-return-leaving-time").html(timeRangeToString(ui.values));
+            break;
+        case 'co-return-arriving-slider':
+            $("#co-return-arriving-time").html(timeRangeToString(ui.values));
+            break;
+        default:
+            alert("I don't know what happened");
         }
     }
 
@@ -158,27 +166,28 @@ var TMCOModule = (function () {
         var sliderOptions = {
             min: 0,
             max: 24,
-            values: [7,18],
-            animate: "slow", 
-            orientation: "horizontal", 
+            values: [7, 18],
+            animate: "slow",
+            orientation: "horizontal",
             slide: updateSliderValues,
             range: true
         };
 
         $("#co-to-leaving-slider").slider(sliderOptions);
-        $("#co-to-arriving-slider").slider( sliderOptions );
+        $("#co-to-arriving-slider").slider(sliderOptions);
 
         // sliders for return journey
 
-        $("#co-return-leaving-slider").slider( sliderOptions );
-        $("#co-return-arriving-slider").slider( sliderOptions );
+        $("#co-return-leaving-slider").slider(sliderOptions);
+        $("#co-return-arriving-slider").slider(sliderOptions);
     }
 
     function normalizeAirportCodes(airports) {
         var jObj = JSON.parse(airports);
-        var aCodes = [], airprtCode, cityState, ridx=0;
+        var aCodes = [],
+            airprtCode, cityState, ridx = 0;
 
-        for(cityState in jObj) {
+        for (cityState in jObj) {
             aCodes[ridx++] = jObj[cityState] + " " + cityState;
         }
         return aCodes;
@@ -194,23 +203,24 @@ var TMCOModule = (function () {
             min: 1915,
             max: 2016,
         }
-        for(var pidx=1; pidx<=numP; pidx++) {
+        for (var pidx = 1; pidx <= numP; pidx++) {
             // day of month spinner
-            $("#co-dob-day-"+pidx).spinner(spinnerMonthOptions);
+            $("#co-dob-day-" + pidx).spinner(spinnerMonthOptions);
             // year spinner
-            $("#co-dob-year-"+pidx).spinner(spinnerYearOptions);
+            $("#co-dob-year-" + pidx).spinner(spinnerYearOptions);
 
         }
     }
 
-    function processPassengerDetails() {    
+    function processPassengerDetails() {
         // read all passenger data
         var passengers = [];
-        var errCount = 0, nP = offerDetails['numPassengers'];
-        
-        for(var pidx=1, aIdx; pidx <= nP; pidx++) {
+        var errCount = 0,
+            nP = offerDetails['numPassengers'];
+
+        for (var pidx = 1, aIdx; pidx <= nP; pidx++) {
             // get individual passenger records
-            aIdx = pidx-1;
+            aIdx = pidx - 1;
             passengers[aIdx] = new Object();
             passengers[aIdx].name = new Object();
             passengers[aIdx].dob = new Object();
@@ -220,27 +230,27 @@ var TMCOModule = (function () {
             passengers[aIdx].gender = $("#co-gender-" + pidx).val();
             passengers[aIdx].dob['month'] = $("#co-dob-month-" + pidx).val();
             passengers[aIdx].dob['day'] = $("#co-dob-day-" + pidx).val();
-            passengers[aIdx].dob['year'] = $("#co-dob-year-" + pidx).val(); 
+            passengers[aIdx].dob['year'] = $("#co-dob-year-" + pidx).val();
         }
-        
+
         var offerD = JSON.stringify(offerDetails),
             pList = JSON.stringify(passengers);
+        var pArgs = new Object();
         
         $.ajax({
-                  url: "/php/process-offer.php",
-                  type: 'post',
-                  data: { 'offer' : offerD,
-                          'passengerlist' : pList
-                        },
-                  success: function (data, status) { 
-                                $("#content").html(data);
-                  },
-                  error: function () { alert("Unable to process request"); }
-               });
-        
+              url: "/php/process-offer.php",
+              type: 'post',
+              data: {   'op'            : 'createoffer',
+                        'offer'         : offerD,
+                        'passengerlist' : pList,
+                    },
+              success: function (data, status) {
+                            $("#content").html(data);
+              },
+              error: function () { alert("Unable to process request"); }
+        });
 
         // TODO - error checking on data
-
     }
 
     function processOfferDetails() {
@@ -250,11 +260,11 @@ var TMCOModule = (function () {
 
         offerData['roundTrip'] = $("#co-roundtrip-option").hasClass("co-form-value-active");
 
-        if($("#co-first-class").hasClass("co-form-value-active")) { 
+        if ($("#co-first-class").hasClass("co-form-value-active")) {
             offerData['classV'] = "first";
-        } else if($("#co-business-class").hasClass("co-form-value-active")) { 
-            offerData['classV'] = "business"; 
-        }  else {
+        } else if ($("#co-business-class").hasClass("co-form-value-active")) {
+            offerData['classV'] = "business";
+        } else {
             offerData['classV'] = "economy";
         }
 
@@ -269,59 +279,73 @@ var TMCOModule = (function () {
 
         // orign flight time details
         offerData['toLeavingEarliest'] = $("#co-to-leaving-slider").slider("values", 0);
-        offerData['toLeavingLatest'] = $("#co-to-leaving-slider").slider("values", 1);	
+        offerData['toLeavingLatest'] = $("#co-to-leaving-slider").slider("values", 1);
 
         offerData['toArrivingEarliest'] = $("#co-to-arriving-slider").slider("values", 0);
-        offerData['toArrivingLatest'] = $("#co-to-arriving-slider").slider("values", 1);	
+        offerData['toArrivingLatest'] = $("#co-to-arriving-slider").slider("values", 1);
 
         // destination flight time details
         offerData['fromLeavingEarliest'] = $("#co-return-leaving-slider").slider("values", 0);
         offerData['fromLeavingLatest'] = $("#co-return-leaving-slider").slider("values", 1);
 
         offerData['fromArrivingEarliestt'] = $("#co-return-leaving-slider").slider("values", 0);
-        offerData['froArrivingLatest'] = $("#co-return-leaving-slider").slider("values", 1);	
+        offerData['froArrivingLatest'] = $("#co-return-leaving-slider").slider("values", 1);
 
         offerData['offerPrice'] = $("#co-offer-price-value").val();
 
         // error checking
-        var errCount=0;
-        if(offerData['numPassengers']===undefined || offerData['numPassengers']==0) {
+        var errCount = 0;
+        if (offerData['numPassengers'] === undefined || offerData['numPassengers'] == 0) {
             errCount++;
-            $("#co-num-passengers").css({"background-color" : "salmon"});
-        } 
+            $("#co-num-passengers").css({
+                "background-color": "salmon"
+            });
+        }
 
-        if(offerData['maxStop']===undefined || offerData['maxStop']==0) {
+        if (offerData['maxStop'] === undefined || offerData['maxStop'] == 0) {
             offerData['maxStop'] = 0;
         }
 
-        if( offerData['origin']===undefined || offerData['origin'].length==0) {
+        if (offerData['origin'] === undefined || offerData['origin'].length == 0) {
             errCount++;
-            $("#co-from").css({"background-color" : "salmon"});
+            $("#co-from").css({
+                "background-color": "salmon"
+            });
         }
 
-        if(offerData['destination']===undefined || offerData['destination'].length==0) {
+        if (offerData['destination'] === undefined || offerData['destination'].length == 0) {
             errCount++;
-            $("#co-to").css({"background-color" : "salmon"});
+            $("#co-to").css({
+                "background-color": "salmon"
+            });
         }
 
-        if(offerData['leavingDate']===undefined || offerData['leavingDate'].length==0) {
+        if (offerData['leavingDate'] === undefined || offerData['leavingDate'].length == 0) {
             errCount++;
-            $("#co-leaving").css({"background-color" : "salmon"});
+            $("#co-leaving").css({
+                "background-color": "salmon"
+            });
         }
 
-        if(offerData['roundTrip'] && (offerData['returnDate']===undefined || offerData['returnDate'].length==0)) {
+        if (offerData['roundTrip'] && (offerData['returnDate'] === undefined || offerData['returnDate'].length == 0)) {
             errCount++;
-            $("#co-returning").css({"background-color" : "salmon"});
+            $("#co-returning").css({
+                "background-color": "salmon"
+            });
         }
 
-        if(offerData['offerPrice']===undefined || offerData['offerPrice']<=50) {
+        if (offerData['offerPrice'] === undefined || offerData['offerPrice'] <= 50) {
             errCount++;
-            $("#co-offer-price-value").css({"background-color" : "salmon"});
+            $("#co-offer-price-value").css({
+                "background-color": "salmon"
+            });
         }
 
-        if(errCount > 0) {
+        if (errCount > 0) {
 
-            $("#co-errors").css({"visibility" : "visible"});
+            $("#co-errors").css({
+                "visibility": "visible"
+            });
             $("#co-offer-price-value").focusin(resetBackground);
             $("#co-leaving").focusin(resetBackground);
             $("#co-returning").focusin(resetBackground);
@@ -331,69 +355,78 @@ var TMCOModule = (function () {
             $("#co-num-passengers").focusin(resetBackground);
 
         } else {
-                offerDetails = offerData;
+            offerDetails = offerData;
 
-                $.ajax({
-                  url: "/html/passenger-details.html",
-                  type: 'post',
-                  success: function (data, status) { 
-                                $("#content").html(data);
+            $.ajax({
+                url: "/html/passenger-details.html",
+                type: 'post',
+                success: function (data, status) {
+                    $("#content").html(data);
 
-                                // depending on number of passengers, hide unneeded passenger blocks
-                                for(var pidx=8; pidx > offerData['numPassengers']; pidx--) {
-                                    var bName = "#passenger-details-" + pidx;
-                                    $(bName).hide();
-                                }
-                                setupDOBSpinners(offerData['numPassengers']);
-                                $("#co-passenger-continue-button").click(processPassengerDetails)
-                 },
-                  error: function () { alert("Unable to get airport codes from server"); }
-               });
-        }   
+                    // depending on number of passengers, hide unneeded passenger blocks
+                    for (var pidx = 8; pidx > offerData['numPassengers']; pidx--) {
+                        var bName = "#passenger-details-" + pidx;
+                        $(bName).hide();
+                    }
+                    setupDOBSpinners(offerData['numPassengers']);
+                    $("#co-passenger-continue-button").click(processPassengerDetails)
+                },
+                error: function () {
+                    alert("Unable to get airport codes from server");
+                }
+            });
+        }
     }
 
-    function displayCreateOfferForm () {
+    function displayCreateOfferForm() {
 
         var aCodes;
 
         // get airport codes from server
         $.ajax({
             url: "/php/airport-codes.php",
-                type: 'post',
-                success: function (data, status) { 
-                        aCodes = normalizeAirportCodes(data);
-                    },
-                error: function () { alert("Unable to get airport codes from server"); }
+            type: 'post',
+            success: function (data, status) {
+                aCodes = normalizeAirportCodes(data);
+            },
+            error: function () {
+                alert("Unable to get airport codes from server");
+            }
         });
 
         // display html
         $.ajax({
-                url: "/html/createoffer.html",
-                type: 'post',
-                data: { 'gethtml' : 'createoffer.html'},
-                success: function (data, status) { 
-                        $("#content").html(data); 
+            url: "/html/createoffer.html",
+            type: 'post',
+            data: {
+                'gethtml': 'createoffer.html'
+            },
+            success: function (data, status) {
+                $("#content").html(data);
 
-                        setupAirportAutoComplete(aCodes);
-                        setupNumPassengers();
-                        setupNumStops();
-                        setupTimeSliders();
-                        setupOfferPrice();
-                        setRoundTripOption();
-                        setEconomyOption();
-                        setupDatePicker();
+                setupAirportAutoComplete(aCodes);
+                setupNumPassengers();
+                setupNumStops();
+                setupTimeSliders();
+                setupOfferPrice();
+                setRoundTripOption();
+                setEconomyOption();
+                setupDatePicker();
 
-                        $("#co-roundtrip-option").click(setRoundTripOption);
-                        $("#co-oneway-option").click(setOnewayOption);
-                        $("#co-continue-button").click(processOfferDetails);
-                        $("#co-economy-class").click(setEconomyOption);
-                        $("#co-business-class").click(setBusinessOption);
-                        $("#co-first-class").click(setFirstOption);
-                    },
-                error: function () { alert("Unable to get data for createoffer.html from server"); }
-                } 
-        );
+                $("#co-roundtrip-option").click(setRoundTripOption);
+                $("#co-oneway-option").click(setOnewayOption);
+                $("#co-continue-button").click(processOfferDetails);
+                $("#co-economy-class").click(setEconomyOption);
+                $("#co-business-class").click(setBusinessOption);
+                $("#co-first-class").click(setFirstOption);
+            },
+            error: function () {
+                alert("Unable to get data for createoffer.html from server");
+            }
+        });
     }
-    
-    return ({ showForm : displayCreateOfferForm });
+
+    return ({
+        showForm: displayCreateOfferForm
+    });
 })();
