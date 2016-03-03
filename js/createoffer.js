@@ -212,7 +212,7 @@ var TMCOModule = (function () {
         }
     }
 
-    function processPassengerDetails() {
+    function submitOffer() {
         // read all passenger data
         var passengers = [];
         var errCount = 0,
@@ -221,9 +221,9 @@ var TMCOModule = (function () {
         for (var pidx = 1, aIdx; pidx <= nP; pidx++) {
             // get individual passenger records
             aIdx = pidx - 1;
-            passengers[aIdx] = new Object();
-            passengers[aIdx].name = new Object();
-            passengers[aIdx].dob = new Object();
+            passengers[aIdx] = {};
+            passengers[aIdx].name = {};
+            passengers[aIdx].dob = {};
             passengers[aIdx].name['fname'] = $("#co-fname-" + pidx).val();
             passengers[aIdx].name['mname'] = $("#co-mname-" + pidx).val();
             passengers[aIdx].name['lname'] = $("#co-lname-" + pidx).val();
@@ -232,17 +232,13 @@ var TMCOModule = (function () {
             passengers[aIdx].dob['day'] = $("#co-dob-day-" + pidx).val();
             passengers[aIdx].dob['year'] = $("#co-dob-year-" + pidx).val();
         }
-
-        var offerD = JSON.stringify(offerDetails),
-            pList = JSON.stringify(passengers);
-        var pArgs = new Object();
         
         $.ajax({
               url: "/php/process-offer.php",
               type: 'post',
               data: {   'op'            : 'createoffer',
-                        'offer'         : offerD,
-                        'passengerlist' : pList,
+                        'offer'         : JSON.stringify(offerDetails),
+                        'passengerlist' : JSON.stringify(passengers),
                     },
               success: function (data, status) {
                             $("#content").html(data);
@@ -255,8 +251,8 @@ var TMCOModule = (function () {
 
     function processOfferDetails() {
         // extract values form the form
-
-        var offerData = new Object();
+        var offerData = {};
+        var val;
 
         offerData['roundTrip'] = $("#co-roundtrip-option").hasClass("co-form-value-active");
 
@@ -271,25 +267,28 @@ var TMCOModule = (function () {
         offerData['origin'] = $("#co-from").val();
         offerData['destination'] = $("#co-to").val();
 
-        offerData['leavingDate'] = $("#co-leaving").val();
-        offerData['returnDate'] = $("#co-returning").val();
+        val = $("#co-leaving").val().split("/");
+        offerData['leavingDate'] = { year : val[2], month : val[0], day : val[1]};
+
+        val = $("#co-returning").val().split("/");
+        offerData['returnDate'] = { year : val[2], month : val[0], day : val[1] };
 
         offerData['numPassengers'] = $("#co-num-passengers").val();
-        offerData['maxStop'] = $("#co-num-stops").val();
+        offerData['maxStops'] = $("#co-num-stops").val();
 
         // orign flight time details
-        offerData['toLeavingEarliest'] = $("#co-to-leaving-slider").slider("values", 0);
-        offerData['toLeavingLatest'] = $("#co-to-leaving-slider").slider("values", 1);
+        offerData['toLeavingEarliest'] = $("#co-to-leaving-slider").slider("values", 0) + ":00";
+        offerData['toLeavingLatest'] = $("#co-to-leaving-slider").slider("values", 1) + ":00";
 
-        offerData['toArrivingEarliest'] = $("#co-to-arriving-slider").slider("values", 0);
-        offerData['toArrivingLatest'] = $("#co-to-arriving-slider").slider("values", 1);
+        offerData['toArrivingEarliest'] = $("#co-to-arriving-slider").slider("values", 0) + ":00";
+        offerData['toArrivingLatest'] = $("#co-to-arriving-slider").slider("values", 1) + ":00";
 
         // destination flight time details
-        offerData['fromLeavingEarliest'] = $("#co-return-leaving-slider").slider("values", 0);
-        offerData['fromLeavingLatest'] = $("#co-return-leaving-slider").slider("values", 1);
+        offerData['fromLeavingEarliest'] = $("#co-return-leaving-slider").slider("values", 0) + ":00";
+        offerData['fromLeavingLatest'] = $("#co-return-leaving-slider").slider("values", 1) + ":00";
 
-        offerData['fromArrivingEarliestt'] = $("#co-return-leaving-slider").slider("values", 0);
-        offerData['froArrivingLatest'] = $("#co-return-leaving-slider").slider("values", 1);
+        offerData['fromArrivingEarliestt'] = $("#co-return-leaving-slider").slider("values", 0) + ":00";
+        offerData['froArrivingLatest'] = $("#co-return-leaving-slider").slider("values", 1) + ":00";
 
         offerData['offerPrice'] = $("#co-offer-price-value").val();
 
@@ -302,8 +301,8 @@ var TMCOModule = (function () {
             });
         }
 
-        if (offerData['maxStop'] === undefined || offerData['maxStop'] == 0) {
-            offerData['maxStop'] = 0;
+        if (offerData['maxStops'] === undefined || offerData['maxStops'] == 0) {
+            offerData['maxStops'] = 0;
         }
 
         if (offerData['origin'] === undefined || offerData['origin'].length == 0) {
@@ -358,7 +357,7 @@ var TMCOModule = (function () {
             offerDetails = offerData;
 
             $.ajax({
-                url: "/html/passenger-details.html",
+                url: "/html/passenger-details-form.html",
                 type: 'post',
                 success: function (data, status) {
                     $("#content").html(data);
@@ -369,7 +368,7 @@ var TMCOModule = (function () {
                         $(bName).hide();
                     }
                     setupDOBSpinners(offerData['numPassengers']);
-                    $("#co-passenger-continue-button").click(processPassengerDetails)
+                    $("#co-passenger-continue-button").click(submitOffer);
                 },
                 error: function () {
                     alert("Unable to get airport codes from server");

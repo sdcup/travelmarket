@@ -1,9 +1,7 @@
 <?php
     /* process offer details */
-    echo $_POST['offer'];
-    echo "<p>";
-    echo $_POST['passengerlist'];
     require_once "Offer.php";
+
 
     $op = $_POST['op'];
 
@@ -19,5 +17,7 @@
             echo "Caught exception - ".$e->getMessage();
             die();
         }
+    } else {
+        echo "you want me to do $op....I don't know how to do that";
     }
 ?>

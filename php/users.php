@@ -22,19 +22,22 @@ class User {
         return null;
     }
 
-    public static function createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip) {
+    public static function createUser($uname, $password, $email, $fname, $lname,
+                                    $phone, $addr1, $addr2, $city, $state, $zip) {
         // validate fields
+        /* TODO - reinstate this check */
+
         if($uname==null || $password==null || $email==null || $fname==null || 
-            $lname==null || $phone==null || $addr1==null || $city ==null || $state==null || 
-            $zip==null) {
+            $lname==null /*|| $phone==null || $addr1==null || $city ==null || $state==null ||
+            $zip==null*/) {
                 throw new BadFunctionCallException("One or more args are null");
         }
 
         if(strlen($uname)==0 || strlen($password)==0 || strlen($email)==0 || strlen($email)==0 || 
-            strlen($fname)==0 || strlen($lname)==0 || strlen($phone)==0 ||strlen($addr1)==0 
-            || strlen($city) ==0 || strlen($state)==0 || strlen($zip)==0) {
+            strlen($fname)==0 || strlen($lname)==0 /*|| strlen($phone)==0 ||strlen($addr1)==0
+            || strlen($city) ==0 || strlen($state)==0 || strlen($zip)==0*/) {
                 throw new BadFunctionCallException("One or more args are undefined");
-        }   
+        }
 
         // validate this user does not exist
         if(UserDBAPI::userExists($uname)!=NULL) {
@@ -49,7 +52,7 @@ class User {
         } 
 
         // call the constructor and return newly created user
-        $newUser = new self($uid, $uname, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip);
+        $newUser = new self($_uid, $uname, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip);
         return $newUser;
     }
     

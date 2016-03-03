@@ -82,8 +82,8 @@ class Offer {
         $this->_buyer = $buyerid;
         $this->_amount = $amount;
         $this->_createdOn = time();
-        // reset to make sure it is not more that xx days from creation date
-        $this->_expiryDate = $expiryDate; // earlier of thirty days or departure date
+        // TODO reset to make sure it is not more that xx days from creation date
+        $this->_expiryDate = $expiryDate; // earlier of thirty days or (departure date -2 days)
 
         $this->_numPassengers = $numPassengers;
         $this->_cabinClass = $cabinClass;
@@ -110,29 +110,40 @@ class Offer {
 
     static function CreateNewOffer($offer, $pList) {
 
-        print("something\n");
-        print("something more\n");
-
         // argument validation is done on client side, so no need to check again
+        $d = $offer['leavingDate'];
+        $leavingDate = $d['year']."-".$d['month']."-".$d['day'];
+
+        $d = $offer['returnDate'];
+        $returnDate  = $d['year']."-".$d['month']."-".$d['day'];
+
+        for($pidx=0; $pidx < $offer['numPassengers']; $pidx++) {
+            $dob = $pList[$pidx]->dob;
+            $d  = $dob->year."-".$dob->month."-".$dob->day;
+            $pList[$pidx]->dob = $d;
+        }
+
         if (!($oid = OfferDBAPI::CreateOffer(
+            0, /* TODO - buyerid, fix later */
             $offer['offerPrice'],
             '2016-01-01', /* TODO grab expiry date from the offer*/
             $offer['origin'],
             $offer['destination'],
-            $offer['rounTrip'],
+            $offer['roundTrip'],
             $offer['maxStops'],
-            $offer['leavingDate'],
+            $leavingDate,
             0, /* TODO $depFlexibility, for the time being ignore this */
-            $offer['toLeavingEarliest'], /* TODO need to convert to an hour */
+            $offer['toLeavingEarliest'],
             $offer['toLeavingLatest'],
-            $offer['returnDate'],
+            $offer['maxStops'],
+            $returnDate,
             0, /* TODO $retFlexibility, for the time being ignore this */
-            $retEarliestHour,
-            $retLatestHour,
-            FALSE,
+            $offer['fromLeavingEarliest'],
+            $offer['fromLeavingLatest'],
             $offer['numPassengers'],
             $offer['classV'],
-            $passengers))) {
+            $pList,
+            FALSE))) {
                 throw new Exception("Unabel to create offer");
         }
 
@@ -140,12 +151,6 @@ class Offer {
 
         // offer is now active and open for selection by seller
         return $ret;
-    }
-
-    //dont think this function is needed, this will be done in createOffer
-    static function AddPassenger($oid, $name, $dob, $gender) {
-        $d = $dob->year."-".$dob->month."-".$dob->day;
-        OfferDBAPI::AddPassenger(oid, $name->fname, $name->mname, $name->lname, $d, $gender);
     }
 
     public function getId() {

@@ -29,20 +29,9 @@ class UserDBAPI {
             
             $rs = $db->query($qstr);
             if($rs !== TRUE) {
-                echo "Error: " . $rs->error;
+                // TODO throw exception
+                // echo "Error: " . $rs->error;
             }
-            
-            /* testing 
-            $qstr = "SELECT ID FROM USERS WHERE USERNAME='$uname'";
-            $rs = $db->query($qstr);
-            if($rs !== TRUE) {
-                echo "Error: " . $rs->error;
-            }
-
-            $row = mysqli_fetch_assoc($rs);
-            print_r($row);
-             * 
-             */
     }
 
     public static function setActiveBit($uid, $value) { 
@@ -59,17 +48,13 @@ class UserDBAPI {
 
     public static function getUserDetails($uname) {
         $db = getDBConnection();
-        echo "In UserDBAPI::getUserDetails\r\n";
 
         $qstr = "SELECT * FROM USERS WHERE USERNAME='$uname'";
-        echo "qstr = $qstr\r\n";
 
         if(!$rs = $db->query($qstr)) {
-            echo "Something  WRONG\r\n";
             return NULL;
         }
         $user = mysqli_fetch_assoc($rs);
-        print_r($user);
         return $user;
     }
     

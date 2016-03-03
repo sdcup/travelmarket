@@ -17,7 +17,7 @@ function getDBConnection() {
 	global $mysqli;
 	
 	Logger::logEntry(__FILE__, __FUNCTION__);
-	if(!$mysqli) {
+	if($mysqli==null) {
 		$mysqli = new mysqli(TMConfig::$mysqlHost,
 				TMConfig::$mysqlUser,
 				TMConfig::$mysqlPassword,

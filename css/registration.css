@@ -29,3 +29,18 @@
 	text-align: right;
 }
 
+#reg-form-error-message {
+    position: relative;
+    top: 2em;
+	left: 2em;
+    bacground-color: Beige;
+	font-size: large;
+    padding-left: 1em;
+	padding-right: 1em;
+	padding-top:0.5em;
+    margin-top: 2em;
+	margin-bottom: 0em;
+    visibility: hidden;
+    color: red;
+}
+
