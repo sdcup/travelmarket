@@ -46,7 +46,8 @@ class User {
     
         //create user and get uid
         try {
-            $_uid = UserDBAPI::createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip, $vToken);
+            //hash('sha256', $password)
+            $_uid = UserDBAPI::createUser($uname, hash('sha256', $password), $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip, $vToken);
         } catch (Exception $e) {
             throw new Exception("This is an unmitigated disaster", 0, $e);
         } 

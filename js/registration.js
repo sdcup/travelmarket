@@ -15,7 +15,7 @@ var User = function () {
     }
 
     function registerUser() {
-        var ud = {}, ret, errCount = 0, errStr = "";
+        var ud = {}, ret, errCount = 0, errStr = "", rpwd;
         var successStr = "User created, an email has been sent to you mail " +
                 "box, <br>please follow the link in email for verification";
 
@@ -26,7 +26,7 @@ var User = function () {
         ud.fName = $("#rf-firstname").val();
         ud.lName = $("#rf-lastname").val();
         ud.pwd = $("#rf-password").val();
-        ud.rpwd = $("#rf-password-again").val();
+        rpwd = $("#rf-password-again").val();
 
         // error checking on input
         if(ud.fName.length==0) {
@@ -55,7 +55,7 @@ var User = function () {
             $("#rf-emailid").css("border", "solid black thin");
         }
 
-        if(ud.pwd.length < 6 || ud.pwd!=ud.rpwd) {
+        if(ud.pwd.length < 6 || ud.pwd!=rpwd) {
             errStr += "\nPasswords must be atleast 6 characters in length and match<br>"
             $("#rf-password").css("border", "solid red thin");
             $("#rf-password-again").css("border", "solid red thin");
@@ -72,13 +72,8 @@ var User = function () {
             return;
         }
 
-        // check input for errors
-        /*alert("you  are now a registered user of travelmarket" + "\n" +
-              "First - " + ud.fName + "\n" +
-              "Last - " + ud.lName  + "\n" +
-              "Password - " + ud.pwd  + "\n" +
-              "Password2 - " + ud.rpwd);
-        */
+        // convert password into hash string - do it on server
+        // ud.pwd = CryptoJS.MD5(ud.pwd).toString(CryptoJS.enc.Hex);
 
         // register user
         $.ajax({
