@@ -9,11 +9,25 @@
 
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <link rel="stylesheet" type="text/css" href="css/jqueryui-hacks.css">
+        <link rel="shortcut icon" type="image/png" href="favicon.png">
 
 
     </head>
     <?php
+        require_once "php/users.php";
 
+        // check if this is a email verification avatar of this page
+        if(isset($_GET['email']) && !empty($_GET['email']) AND
+           isset($_GET['token']) && !empty($_GET['token'])) {
+            // Verify data
+            if(User::verifyUser($_GET['email'], $_GET['token'])) {
+                // we are good
+                echo "Thank you for joining travelmarket<br>your account is now active";
+            } else {
+                // give user the bad news
+                echo "Sorry, there is no user with that name in our system.";
+            }
+        }
     ?>
 
     <body>

@@ -11,7 +11,7 @@ class UserDBAPI {
      * @return type uid
      */	
     public static function createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, 
-                        $addr2, $city, $state, $zip) {
+                        $addr2, $city, $state, $zip, $vToken) {
 
             Logger::logEntry(__FILE__, __FUNCTION__);
             // This method assumes all the data validation has been done at 
@@ -22,9 +22,9 @@ class UserDBAPI {
 
             $qstr = "INSERT INTO USERS ";
             $qstr .= "(USERNAME, PASSWD, EMAIL, USERLASTNAME, USERFIRSTNAME, PHONE, ";
-            $qstr .= "ADDRESSLINE1, ADDRESSLINE2, CITY, STATE, POSTALCODE) VALUES ";
-            $qstr .= "(";
-            $qstr .= "'$uname', '$password', '$email', '$lname', '$fname', '$phone', '$addr1', '$addr2', '$city', '$state', '$zip'";
+            $qstr .= "ADDRESSLINE1, ADDRESSLINE2, CITY, STATE, POSTALCODE, ACTIVATIONCODE";
+            $qstr .= ") VALUES (";
+            $qstr .= "'$uname', '$password', '$email', '$lname', '$fname', '$phone', '$addr1', '$addr2', '$city', '$state', '$zip', '$vToken'";
             $qstr .= ")";
             
             $rs = $db->query($qstr);

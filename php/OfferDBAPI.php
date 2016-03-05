@@ -4,10 +4,10 @@ require_once "mysql.php";
 
 
 class OfferDBAPI {
-    static function CreateOffer($buyerid, $amount, $expiryDate, $origin, $destination,
-            $rountrip, $maxHopsOutBound,
+    static function CreateOffer($buyerid, $amount, $expiryDate,
+            $origin, $destination, $rountrip, $maxHopsOutBound,
             $depDate, $depFlexibility, $depEarliestHour, $depLatestHour, 
-            $maxHopsInBound, $retDate, $retFlexibility, $retEarliestHour, $retLatestHour, $locked=false) {
+            $maxHopsInBound, $retDate, $retFlexibility, $retEarliestHour, $retLatestHour, $numPassengers, $cabinClass, $pList, $locked=false) {
         
         $db = getDBConnection();
         
@@ -19,22 +19,24 @@ class OfferDBAPI {
         }
 
         $qstr = "INSERT INTO BUYOFFERS ";
-            $qstr .= "(REQUESTERID, OFFERPRICE, EXPIRYDATE, SOURCEAIRPORT, DESTINATIONAIRPORT, ROUNDTRIP, ";
+            $qstr .= "(REQUESTERID, OFFERPRICE, EXPIRYDATE, ";
+            $qstr .= "SOURCEAIRPORT, DESTINATIONAIRPORT, ROUNDTRIP, ";
             $qstr .= "MAXNUMSTOPSOUTBOUND, DEPARTUREDATE, DEPARTUREDATEFLEXIBILITY, ";
             $qstr .= "DEPARTURETIMEBEGIN, DEPARTURETIMEEND, ";
-            $qstr .= "MAXNUMSTOPSRETURN, RETRUNDATE, RETURNDATEFLEXIBILITY, RETURNTIMEBEGIN, RETURNTIMEEND, STATUS";
+            $qstr .= "MAXNUMSTOPSRETURN, RETRUNDATE, RETURNDATEFLEXIBILITY, RETURNTIMEBEGIN, RETURNTIMEEND, NUMPASSENGERS, CABINCLASS, STATUS";
             $qstr .= ") VALUES (";
             $qstr .= "'$buyerid', '$amount', '$expiryDate', '$origin', '$destination',";
             $qstr .= "'$rountrip', '$maxHopsOutBound',";
             $qstr .= "'$depDate', '$depFlexibility', '$depEarliestHour', '$depLatestHour',";
             $qstr .= "'$maxHopsInBound', '$retDate', '$retFlexibility', '$retEarliestHour',";
-            $qstr .= "'$retLatestHour', 'OPEN')";
+            $qstr .= "'$retLatestHour', '$numPassengers', '$cabinClass', 'OPEN')";
 
         $rs = $db->query($qstr);
         if($rs !== TRUE) {
             print_r($rs);
-            echo "Error: " . $db->error;
+            echo "Error: " . $db->error . "<br>";
         } 
+
         // get offerid and return it to the caller
         $qstr = "SELECT ID FROM BUYOFFERS WHERE REQUESTERID = '$buyerid' ORDER BY REQUESTDATE DESC LIMIT 1";
         $rs = $db->query($qstr);
@@ -43,6 +45,24 @@ class OfferDBAPI {
             throw new Exception("problem getting ifd from the offer table");
         } 
         $ret = mysqli_fetch_assoc($rs);
+
+        $oid = $ret['ID'];
+        for($pidx=0; $pidx < $numPassengers; $pidx++) {
+            $name = $pList[$pidx]->name;
+            $gender = $pList[$pidx]->gender;
+            $dob = $pList[$pidx]->dob;
+
+            $qstr = "INSERT INTO PASSENGERS ";
+            $qstr .= "(OFFERID, FNAME, MNAME, LNAME, GENDER, DOB";
+            $qstr .= ") VALUES (";
+            $qstr .= "'$oid', '$name->fname', '$name->mname', '$name->lname',";
+            $qstr .= "'$gender', '$dob')";
+            $rs = $db->query($qstr);
+            if($rs !== TRUE) {
+                print_r($rs);
+                echo "Error: " . $db->error . "<br>";
+            }
+        }
         return $ret['ID'];
     }
     

@@ -23,7 +23,7 @@ class User {
     }
 
     public static function createUser($uname, $password, $email, $fname, $lname,
-                                    $phone, $addr1, $addr2, $city, $state, $zip) {
+                                    $phone, $addr1, $addr2, $city, $state, $zip, $vToken) {
         // validate fields
         /* TODO - reinstate this check */
 
@@ -46,7 +46,7 @@ class User {
     
         //create user and get uid
         try {
-            $_uid = UserDBAPI::createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip);
+            $_uid = UserDBAPI::createUser($uname, $password, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip, $vToken);
         } catch (Exception $e) {
             throw new Exception("This is an unmitigated disaster", 0, $e);
         } 
@@ -73,6 +73,31 @@ class User {
         return $u;
     }
     
+    public static function verifyUser($uname, $tok) {
+
+        if(($uname===NULL || strlen($uname)==0) ||
+           ($tok===NULL || strlen($tok)==0)) {
+            throw new InvalidArgumentException("invalid username or verification token");
+        }
+
+        // fetch the user from database, if successful,
+        // verify the user was previously inactive, and,
+        // token matches
+        $uDetails = UserDBAPI::getUserDetails($uname);
+        if($uDetails==null) {
+            return false;
+        }
+
+        if(strcmp($uDetails['ACTIVATIONCODE'], $tok)!=0 || $uDetails['ACTIVE']==1) {
+            return false;
+        }
+
+        // activate user
+        UserDBAPI::setActiveBit($uDetails['ID'], 1);
+        return true;
+    }
+
+
     function __construct($uid, $uname, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip) {
         // fill the properties 
         $this->_uid = $uid;

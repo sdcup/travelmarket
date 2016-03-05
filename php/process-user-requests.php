@@ -9,15 +9,36 @@
     */
 
 require_once "users.php";
-require_once "mailutil.php";
+require_once "Mail.php";
+
+function sendMail($to, $subj, $msg) {
+    $from = '<tm.verify@yahoo.com>'; //change this to your email address
+
+    $headers = array(
+        'From' => $from,
+        'To' => $to,
+        'Subject' => $subj
+    );
+
+    $smtp = Mail::factory('smtp', array(
+            'host' => TMConfig::$mSMTPHost,
+            'port' => TMConfig::$mPort,
+            'auth' => true,
+            'username' => TMConfig::$mUserName, //your gmail account
+            'password' => TMConfig::$mPassword,
+        ));
+
+    // Send the mail
+    $mail = $smtp->send($to, $headers, $msg);
+}
+
 
 $ud = json_decode($_POST['requestDetails']);
 
-function createVerToken($tokSize) {
+function createVerificationToken($tokSize) {
     $charStr = '0123456789'.
                 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.
-                'abcdefghijklmnopqrstuvwxyz'.
-                '@#$%^&*()_+=-;/,.<>?';
+                'abcdefghijklmnopqrstuvwxyz';
 
     $strSize = strlen($charStr)-1;
     $t = '';
@@ -33,12 +54,12 @@ function createVerToken($tokSize) {
 switch($_POST['op']) {
     case 'registeruser' :
         try {
-            $vToken = createVerToken(24);
+            $vToken = createVerificationToken(24);
             $u = User::createUser($ud->emailId, $ud->pwd, $ud->emailId,
-                            $ud->fName, $ud->lName, "", "", "", "", "", "");
+                            $ud->fName, $ud->lName, "", "", "", "", "", "", $vToken);
 
             // send a verification email to user
-            $notificationUrl = 'http://'.TMConfig::$hName."/ver.php?token=".$vToken;
+            $notificationUrl = 'http://'.TMConfig::$hName."?email=".$ud->emailId."&token=".$vToken;
             $msg = "\n\nWelocome to travel market\n\n".
                 "Please verify your email by clicking on the following URL\n\n".
                 $notificationUrl."\n\n".
