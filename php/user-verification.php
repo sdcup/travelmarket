@@ -3,10 +3,10 @@
 require_once "php/users.php";
 
 // check if this is a email verification avatar of this page
-if(isset($_GET['email']) && !empty($_GET['email']) AND
+if(isset($_GET['email']) && !empty($_GET['email']) &&
    isset($_GET['token']) && !empty($_GET['token'])) {
     // Verify data
-    if(User::verifyUser($_GET['email'], $_GET['token'])) {
+    if(User::activateUser($_GET['email'], $_GET['token'])) {
         // we are good
         $outputStr = "Thank you for joining travelmarket<br>your account is now active";
     } else {

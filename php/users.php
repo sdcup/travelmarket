@@ -24,9 +24,7 @@ class User {
 
     public static function createUser($uname, $password, $email, $fname, $lname,
                                     $phone, $addr1, $addr2, $city, $state, $zip, $vToken) {
-        // validate fields
         /* TODO - reinstate this check */
-
         if($uname==null || $password==null || $email==null || $fname==null || 
             $lname==null /*|| $phone==null || $addr1==null || $city ==null || $state==null ||
             $zip==null*/) {
@@ -74,7 +72,7 @@ class User {
         return $u;
     }
     
-    public static function verifyUser($uname, $tok) {
+    public static function activateUser($uname, $tok) {
 
         if(($uname===NULL || strlen($uname)==0) ||
            ($tok===NULL || strlen($tok)==0)) {
@@ -98,6 +96,16 @@ class User {
         return true;
     }
 
+    public static function validateUserCred($uname, $passwd) {
+        $ud = UserDBAPI::getUserDetails($uname);
+        if(strcmp(hash('sha256', $passwd), $ud['PASSWD'])==0) {
+            return $ud['ID'];
+        }
+        print("db hash - ".$ud['PASSWD']."\n"."created hash - ".hash('sha256', $passwd)."\n");
+
+        return null;
+    }
+
 
     function __construct($uid, $uname, $email, $fname, $lname, $phone, $addr1, $addr2, $city, $state, $zip) {
         // fill the properties 
@@ -112,10 +120,6 @@ class User {
         $this->_city = $city;
         $this->_state = $state;
         $this->_zip = $zip;
-    }
- 
-    public function activateUser() {
-            return UserDBAPI::setActiveBit($this->_uName, true);
     }
 
     public function disableUser() {

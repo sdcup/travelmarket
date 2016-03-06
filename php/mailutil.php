@@ -1,9 +1,10 @@
+<?php
+
 // Pear Mail Library
 require_once "Mail.php";
 
 function sendMail($to, $subj, $msg) {
-    $from = '<sdhingra.client@gmail.com>'; //change this to your email address
-    $body = "Hello world! this is the content of the email"; //content of mail
+    $from = '<tm.verify@yahoo.com>'; //change this to your email address
 
     $headers = array(
         'From' => $from,
@@ -12,13 +13,15 @@ function sendMail($to, $subj, $msg) {
     );
 
     $smtp = Mail::factory('smtp', array(
-            'host' => 'ssl://smtp.gmail.com',
-            'port' => '465',
+            'host' => TMConfig::$mSMTPHost,
+            'port' => TMConfig::$mPort,
             'auth' => true,
-            'username' => 'sdhingra.client@gmail.com', //your gmail account
-            'password' => 'drDhingra1' // your password
+            'username' => TMConfig::$mUserName, //your gmail account
+            'password' => TMConfig::$mPassword,
         ));
 
     // Send the mail
-    $mail = $smtp->send($to, $headers, $body);
+    $mail = $smtp->send($to, $headers, $msg);
 }
+
+?>

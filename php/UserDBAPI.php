@@ -62,6 +62,7 @@ class UserDBAPI {
         return (self::getUserDetails($uname)) ? 1 : 0;
     }
 
+
     /**
      * deleteUser
      * does not actually remove the record from database, simply sets the active bit to 0

@@ -9,28 +9,9 @@
     */
 
 require_once "users.php";
-require_once "Mail.php";
+require_once "mailutil.php";
 
-function sendMail($to, $subj, $msg) {
-    $from = '<tm.verify@yahoo.com>'; //change this to your email address
 
-    $headers = array(
-        'From' => $from,
-        'To' => $to,
-        'Subject' => $subj
-    );
-
-    $smtp = Mail::factory('smtp', array(
-            'host' => TMConfig::$mSMTPHost,
-            'port' => TMConfig::$mPort,
-            'auth' => true,
-            'username' => TMConfig::$mUserName, //your gmail account
-            'password' => TMConfig::$mPassword,
-        ));
-
-    // Send the mail
-    $mail = $smtp->send($to, $headers, $msg);
-}
 
 
 $ud = json_decode($_POST['requestDetails']);
@@ -74,7 +55,18 @@ switch($_POST['op']) {
         }
         break;
     case 'changepassword' :
+        break;
     case 'login' :
+        $uid = User::validateUserCred($ud->emailid, $ud->password);
+        if($uid) {
+            $ret['status'] = 'success';
+            $ret['uid'] = $uid;
+        } else {
+            $ret['status'] = 'error';
+            $ret['msg'] = "Unable to authenticate user";
+        }
+        // validate user
+        break;
     case 'updateprofile' :
     default: {
         $ret['status'] = 'error';
